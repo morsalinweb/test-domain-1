@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Green Pulse Education</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span>Green Pulse Education</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="donate.html" class="donate-btn active">Donate</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header donate-header">
+        <div class="container">
+            <h1>Support Environmental Education</h1>
+            <p>Your donation directly impacts students and communities</p>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="section donation-section">
+        <div class="container">
+            <div class="donation-content">
+                <div class="donation-info">
+                    <h2>Why Your Support Matters</h2>
+                    <div class="impact-items">
+                        <div class="impact-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="impact-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="impact-amount">$25</span>
+                            </div>
+                            <div class="impact-content">
+                                <h3>Student Materials</h3>
+                                <p>
+                                    Provides environmental education materials for one student for an entire 
+                                    semester, including hands-on lab supplies and field study equipment.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="impact-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="impact-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="impact-amount">$100</span>
+                            </div>
+                            <div class="impact-content">
+                                <h3>Water Testing Kit</h3>
+                                <p>
+                                    Funds a complete water quality testing kit, enabling an entire class 
+                                    to monitor local waterways and contribute to environmental protection.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="impact-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="impact-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="impact-amount">$500</span>
+                            </div>
+                            <div class="impact-content">
+                                <h3>Renewable Energy Workshop</h3>
+                                <p>
+                                    Sponsors a renewable energy workshop for 30 students, including materials 
+                                    to build solar-powered devices they can take home.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="impact-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="impact-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="impact-amount">$1,000</span>
+                            </div>
+                            <div class="impact-content">
+                                <h3>School Garden Project</h3>
+                                <p>
+                                    Fully funds a school garden project, providing a year-long outdoor 
+                                    classroom experience for an entire grade level.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-form-container">
+                    <div class="donation-form">
+                        <h3>Make a Donation</h3>
+                        <form id="donation-form">
+                            <div class="amount-selection">
+                                <div class="amount-buttons">
+                                    <button type="button" class="amount-btn" data-amount="25">$25</button>
+                                    <button type="button" class="amount-btn" data-amount="100">$100</button>
+                                    <button type="button" class="amount-btn" data-amount="250">$250</button>
+                                    <button type="button" class="amount-btn" data-amount="500">$500</button>
+                                    <button type="button" class="amount-btn" data-amount="1000">$1,000</button>
+                                    <button type="button" class="amount-btn" data-amount="custom">Custom</button>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount">Donation Amount ($)</label>
+                                    <input type="number" id="amount" name="amount" placeholder="Enter amount" min="1" required>
+                                </div>
+                            </div>
+                            
+                            <div class="donor-info">
+                                <div class="form-group">
+                                    <label for="donor-name">Full Name</label>
+                                    <input type="text" id="donor-name" name="donor-name" placeholder="Your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="donor-email">Email Address</label>
+                                    <input type="email" id="donor-email" name="donor-email" placeholder="your.email@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message (Optional)</label>
+                                    <textarea id="message" name="message" rows="3" placeholder="Share why you support environmental education..."></textarea>
+                                </div>
+                            </div>
+                            
+                            <div id="card-element" class="card-element">
+                                <!-- Stripe Elements will create form elements here -->
+                            </div>
+                            <div id="card-errors" role="alert" class="card-errors"></div>
+                            
+                            <button type="submit" id="submit-button" class="btn btn-primary donation-submit">
+                                <span id="button-text">Complete Donation</span>
+                                <div id="spinner" class="spinner hidden"></div>
+                            </button>
+                        </form>
+                        
+                        <p class="donation-note">
+                            <i class="fas fa-shield-alt"></i>
+                            Green Pulse Education is a 501(c)(3) nonprofit. Your donation is tax-deductible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Ways to Support -->
+    <section class="section support-ways">
+        <div class="container">
+            <h2 class="section-title">Other Ways to Support</h2>
+            <div class="support-grid">
+                <div class="support-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="support-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Volunteer</h3>
+                    <p>
+                        Join our team of educators and environmental professionals helping students in the field.
+                    </p>
+                    <a href="#volunteer" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="support-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="support-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Corporate Partnership</h3>
+                    <p>
+                        Partner with us to support environmental education while meeting your CSR goals.
+                    </p>
+                    <a href="#partner" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="support-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="support-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Equipment Donation</h3>
+                    <p>
+                        Donate scientific equipment, computers, or educational materials to our programs.
+                    </p>
+                    <a href="#equipment" class="btn btn-secondary">Donate Items</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <span>Green Pulse Education</span>
+                    </div>
+                    <p class="footer-description">
+                        Empowering the next generation of environmental leaders through innovative 
+                        K-12 education programs.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="programs.html">Green Schools Initiative</a></li>
+                        <li><a href="programs.html">Water Stewardship</a></li>
+                        <li><a href="programs.html">Zero Waste Challenge</a></li>
+                        <li><a href="programs.html">Urban Forest Initiative</a></li>
+                        <li><a href="programs.html">Climate Action Leaders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="#volunteer">Volunteer</a></li>
+                        <li><a href="#partner">Partner with Us</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chicago, IL</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(312) 555-GREEN</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@greenpulseeducation.org</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Green Pulse Education. All rights reserved. | Tax ID: 47-1234567</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+    <script src="assets/donation.js"></script>
+</body>
+</html>

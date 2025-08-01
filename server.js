@@ -9,28 +9,28 @@ const PORT = process.env.PORT || 3000
 // Middleware
 app.use(cors())
 app.use(express.json())
-app.use(express.static(path.join(__dirname)))
+app.use(express.static(path.join(__dirname, "public")));
 
 // Serve static files
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"))
-})
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "about.html"))
-})
+  res.sendFile(path.join(__dirname, "public", "about.html"));
+});
 
 app.get("/programs", (req, res) => {
-  res.sendFile(path.join(__dirname, "programs.html"))
-})
+  res.sendFile(path.join(__dirname, "public", "programs.html"));
+});
 
 app.get("/impact", (req, res) => {
-  res.sendFile(path.join(__dirname, "impact.html"))
-})
+  res.sendFile(path.join(__dirname, "public", "impact.html"));
+});
 
 app.get("/donate", (req, res) => {
-  res.sendFile(path.join(__dirname, "donate.html"))
-})
+  res.sendFile(path.join(__dirname, "public", "donate.html"));
+});
 
 // Create payment intent endpoint
 app.post("/api/create-payment-intent", async (req, res) => {
