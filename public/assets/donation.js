@@ -1,3 +1,5 @@
+// public/assets/donation.js
+
 // Import Stripe library
 const Stripe = window.Stripe
 

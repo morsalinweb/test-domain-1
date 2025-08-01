@@ -1,3 +1,5 @@
+// server.js
+
 const express = require("express")
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 const path = require("path")
@@ -30,10 +32,6 @@ app.get("/impact", (req, res) => {
 
 app.get("/donate", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "donate.html"));
-});
-
-app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
 });
 
 // Create payment intent endpoint
