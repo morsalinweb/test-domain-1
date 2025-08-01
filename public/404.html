@@ -1,13 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-    <h1>404 - Page Not Found</h1>
-    <p>Sorry, the page you're looking for doesn't exist.</p>
-    <a href="/">Return Home</a>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="logo-text">
+                    <span>Green Pulse</span>
+                    <span>Education</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="impact.html">Impact</a></li>
+                <li><a href="donate.html" class="donate-btn">Donate</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>404 - Page Not Found</h1>
+        <p>Sorry, the page you're looking for doesn't exist.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <span>Green Pulse Education</span>
+                    </div>
+                    <p class="footer-description">
+                        Empowering the next generation of environmental leaders through innovative
+                        K-12 education programs.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="programs.html">Green Schools Initiative</a></li>
+                        <li><a href="programs.html">Water Stewardship</a></li>
+                        <li><a href="programs.html">Zero Waste Challenge</a></li>
+                        <li><a href="programs.html">Urban Forest Initiative</a></li>
+                        <li><a href="programs.html">Climate Action Leaders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Get Involved</h3>
+                    <ul class="footer-links">
+                        <li><a href="donate.html">Donate</a></li>
+                        <li><a href="#volunteer">Volunteer</a></li>
+                        <li><a href="#partner">Partner with Us</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Chicago, IL</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(312) 555-GREEN</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@greenpulseeducation.org</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Green Pulse Education. All rights reserved. | Tax ID: 47-1234567</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
 </body>
+
 </html>
